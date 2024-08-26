@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="بازی آنلاین با دوستان خود در سرور ماینکرافت" />
+    <meta name="keywords" content="ماینکرافت , سرور ماینکرافت , ماینکرفت , mc , minecraft , سرور minecraft , سرور ماینکرافت , سرور , minecraft server">
+    <title>سرور ماینکرافت سروایول</title>
+    <link rel="canonical" href="YOUR-URL-HERE">
+    <meta property="og:title" content="سرور ماینکرافت سروایول" />
+    <meta property="og:url" content="YOUR-URL-HERE" />
+    <meta property="og:type" content="gaming" />
+    <meta property="og:description" content="بازی آنلاین با دوستان خود در سرور ماینکرافت" />
+    <link rel="shortcut icon" href="assets/images/icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main">
+        <h1 class="title">سرور ماینکرافت سروایول</h1>
+        <span id="onlinestatus" class="server-offline">در حال بارگذاری وضعیت سرور...</span>
+        <div class="serverinfo">
+            <span class="onlineusers">تعداد افراد آنلاین در سرور <span id="onlinePlayers" class="online-zero">X</span> نفر</span>
+            <span class="serverip">IP : <span id="serverip">YOUR-SERVER-IP-HERE</span></span>
+        </div>
+    </div>
+    <script>
+        fetch('https://api.mcsrvstat.us/3/YOUR-SERVER-IP-HERE')
+            .then(response => response.json())
+            .then(data => {
+                const onlinePlayersElement = document.getElementById('onlinePlayers');
+                const onlineStatusElement = document.getElementById('onlinestatus');
+                const onlinePlayers = data.players.online;
+
+                onlinePlayersElement.textContent = onlinePlayers;
+
+                if (onlinePlayers > 0) {
+                    onlinePlayersElement.classList.remove('online-zero');
+                    onlinePlayersElement.classList.add('online-positive');
+                } else {
+                    onlinePlayersElement.classList.remove('online-positive');
+                    onlinePlayersElement.classList.add('online-zero');
+                }
+
+                if (data.online) {
+                    onlineStatusElement.textContent = 'سرور آنلاین است';
+                    onlineStatusElement.classList.remove('server-offline');
+                    onlineStatusElement.classList.add('server-online');
+                } else {
+                    onlineStatusElement.textContent = 'سرور آفلاین است';
+                    onlineStatusElement.classList.remove('server-online');
+                    onlineStatusElement.classList.add('server-offline');
+                }
+            })
+            .catch(error => {
+                const onlineStatusElement = document.getElementById('onlinestatus');
+                onlineStatusElement.textContent = 'خطا در بارگذاری وضعیت سرور';
+                onlineStatusElement.classList.add('server-offline');
+                console.error('Error fetching server status:', error);
+            });
+    </script>
+</body>
+</html>

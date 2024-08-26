@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Vazirmatn", sans-serif;
+}
+
+.main{
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../../assets/images/minecraft.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title{
+    text-align: center;
+    color: #fff;
+    font-size: 4rem;
+    text-shadow: 0px 0px 25px rgba(0,0,0,0.69);
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.serverinfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    gap: 15px;
+}
+
+.onlineusers{
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    z-index: 10;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.serverip{
+    background-color: #0000006d;
+    color: #fff;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    padding: 4px 20px;
+    font-weight: 400;
+    font-size: 22px;
+    border-radius: 40px;
+    box-shadow: 0px 0px 50px 17px rgba(0,0,0,0.2);
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#serverip{
+    -webkit-user-select: all;
+    -ms-user-select: all;
+    user-select: all;
+}
+
+#serverip::-moz-selection{
+    color: #24B742;
+    background: #6D461C;
+}
+
+#serverip::selection{
+    color: #24B742;
+    background: #6D461C;
+}
+
+.serverip::after{
+    content: 'Ver: 1.16.5';
+    position: absolute;
+    top: -9px;
+    font-size: 11px;
+    right: 15px;
+    background-color: red;
+    padding: 0px 5px;
+    border-radius: 20px;
+}
+
+#onlinePlayers{
+    font-weight: 800;
+}
+.online-zero {
+    color: #ff0000;
+}
+.online-positive {
+    color: #23e800;
+}
+
+#onlinestatus{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-weight: 500;
+    font-size: 15px;
+}
+.server-online{
+    color: #23e800;
+}
+.server-offline{
+    color: #ff0000;
+}
+
+/* Media queries for responsive font sizes */
+
+@media (max-width: 992px) {
+    .title {
+        font-size: 4rem;
+    }
+
+    .serverip {
+        font-size: 22px;
+    }
+
+    .onlineusers {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 3.3rem;
+    }
+
+    .serverip {
+        font-size: 30px;
+    }
+
+    .onlineusers {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 576px) {
+    .title {
+        font-size: 2.3rem;
+    }
+
+    .serverip {
+        font-size: 25px;
+    }
+
+    .onlineusers {
+        font-size: 20px;
+    }
+}
