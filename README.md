@@ -14,7 +14,8 @@ Download latest zip file of project and extract it
 Replace `YOUR-URL-HERE` with your website domain
 <br>
 Replace `YOUR-SERVER-IP-HERE` with your minecraft server IP or Domain
-> To change version number, change `style.css` file inside assets folder
+<br>
+Replace `Ver: 1.16.5` with your minecraft server version
 
 ## Built With
 
